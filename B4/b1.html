@@ -1,0 +1,202 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10x10 Grid</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+        }
+
+        .grid-item {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .green {
+            background-color: lightgreen;
+        }
+
+        .red {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container" id="gridContainer"></div>
+
+    <script>
+        // Lấy thẻ gridContainer
+        const gridContainer = document.getElementById('gridContainer');
+
+        // Kích thước của lưới (10x10)
+        const gridSize = 10;
+
+        // Tạo 10 hàng
+        for (let i = 0; i < gridSize; i++) {
+            // Tạo 10 cột cho mỗi hàng
+            for (let j = 0; j < gridSize; j++) {
+                const gridItem = document.createElement('div');
+                gridItem.classList.add('grid-item');
+
+                // Sử dụng điều kiện để xen kẽ màu xanh và màu đỏ
+                gridItem.classList.add((i + j) % 2 === 0 ? 'green' : 'red');
+
+                // Hiển thị số thứ tự trong ô vuông
+                // gridItem.textContent = i * gridSize + j + 1;
+
+                // Thêm ô vuông vào gridContainer
+                gridContainer.appendChild(gridItem);
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone List</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phone List</h1>
+    <ul id="phoneList"></ul>
+
+    <script>
+        // Danh sách tên điện thoại
+        const phoneNames = ["iPhone", "Samsung Galaxy", "LG", "Sony", "Nokia"];
+
+        // Lấy thẻ ul để hiển thị danh sách
+        const phoneList = document.getElementById('phoneList');
+
+        // Sử dụng vòng lặp for để thêm từng tên điện thoại vào danh sách
+        for (let i = 0; i < phoneNames.length; i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = phoneNames[i];
+            phoneList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculation</title>
+</head>
+<body>
+    <h1>Sum Calculation</h1>
+    <p id="result"></p>
+
+    <script>
+        // Khởi tạo biến tổng và biến đếm
+        let sum = 0;
+        let i = 1;
+
+        // Sử dụng vòng lặp do-while để tính tổng các số nguyên từ 1 đến 8
+        do {
+            sum += i;
+            i++;
+        } while (i <= 8);
+
+        // Hiển thị kết quả
+        document.getElementById('result').textContent = `Tổng các số từ 1 đến 8 là: ${sum}`;
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .traffic-light {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .light {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #red { background-color: red; }
+        #yellow { background-color: yellow; }
+        #green { background-color: green; }
+    </style>
+</head>
+<body>
+
+<div class="traffic-light">
+    <div id="red" class="light"></div>
+    <div id="yellow" class="light"></div>
+    <div id="green" class="light"></div>
+    <button onclick="toggleLights()">Toggle Lights</button>
+</div>
+
+<script>
+    let lights = ["red", "yellow", "green"];
+    let currentLightIndex = 0;
+
+    function toggleLights() {
+        // Tắt đèn hiện tại
+        document.getElementById(lights[currentLightIndex]).style.backgroundColor = "";
+
+        // Chuyển sang đèn tiếp theo
+        currentLightIndex = (currentLightIndex + 1) % lights.length;
+
+        // Bật đèn mới
+        document.getElementById(lights[currentLightIndex]).style.backgroundColor = lights[currentLightIndex];
+    }
+
+    function autoToggle() {
+        setInterval(function () {
+            toggleLights();
+        }, 1000); // Thời gian chuyển đổi giữa các màu (1 giây trong trường hợp này)
+    }
+
+    // Tự động chuyển đèn
+    autoToggle();
+</script>
+
+</body>
+</html>
+

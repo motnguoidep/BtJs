@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngô Thị Xuân Thương - 21CNTT4</title>
+
+</head>
+<body>
+
+  <div id="calculator">
+    <h2>Motnguoidep</h2>
+
+    <div class="input-container">
+      <input type="number" id="numberA" placeholder="Number A" oninput="displayNumberA()">
+    </div>
+
+    <div class="input-container">
+      <!-- Ô input cho Number B -->
+      <input type="number" id="numberB" placeholder="Number B" oninput="displayNumberB()">
+    </div>
+
+    <br>
+
+    <!-- Nút Cộng -->
+    <button onclick="calculate('summation')">+</button>
+
+    <!-- Nút Trừ -->
+    <button onclick="calculate('subtraction')">-</button>
+
+    <!-- Nút Nhân -->
+    <button onclick="calculate('multiplication')">*</button>
+
+    <!-- Nút Chia -->
+    <button onclick="calculate('division')">/</button>
+
+    <!-- Nút Clear -->
+    <button onclick="clearInputs()">Clear</button>
+
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    function displayNumberA() {
+      // Lấy giá trị từ ô input Number A
+      let numberA = document.getElementById('numberA').value;
+      // Hiển thị giá trị của Number A trong nội dung của ô input
+      document.getElementById('numberA').value = numberA;
+    }
+
+    function displayNumberB() {
+      // Lấy giá trị từ ô input Number B
+      let numberB = document.getElementById('numberB').value;
+      // Hiển thị giá trị của Number B trong nội dung của ô input
+      document.getElementById('numberB').value = numberB;
+    }
+
+    function calculate(operation) {
+      // Lấy giá trị từ ô input
+      let numberA = parseFloat(document.getElementById('numberA').value);
+      let numberB = parseFloat(document.getElementById('numberB').value);
+
+      let result;
+      
+      // Thực hiện phép toán tương ứng với nút được click
+      switch (operation) {
+        case 'summation':
+          result = numberA + numberB;
+          break;
+        case 'subtraction':
+          result = numberA - numberB;
+          break;
+        case 'multiplication':
+          result = numberA * numberB;
+          break;
+        case 'division':
+          result = numberA / numberB;
+          break;
+        default:
+          result = 'Invalid operation';
+      }
+
+      // In kết quả ra màn hình
+      document.getElementById('result').innerText = `Result: ${result}`;
+    }
+
+    function clearInputs() {
+      // Xóa giá trị trong ô input và kết quả
+      document.getElementById('numberA').value = '';
+      document.getElementById('numberB').value = '';
+      document.getElementById('result').innerText = '';
+    }
+  </script>
+
+  
+<style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff; /* Màu chữ tối */
+    }
+    h2{
+        color: rgb(252, 51, 84);
+    }
+
+    #calculator {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Bóng tối */
+      background-color: #333; /* Màu nền tối cho khung máy tính */
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%; /* Độ rộng của ô input */
+      text-align: center; /* Căn giữa nội dung trong ô input */
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: rgb(252, 51, 84);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color:rgb(252, 51, 84);
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+
+</body>
+</html>
